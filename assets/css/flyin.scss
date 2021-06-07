@@ -1,0 +1,169 @@
+$break-lg: 992px;
+@mixin break-lg {
+  @media(min-width: $break-lg) {
+    @content;
+  }
+}
+
+.heropic {
+  min-height: 50vh;
+  color: white;
+  position: relative;
+  // background: linear-gradient(190deg, rgb(13, 2, 168), rgb(103, 182, 255));
+  // background: url("https://dynaimage.cdn.cnn.com/cnn/q_auto,w_412,c_fill,g_auto,h_232,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F181010131059-australia-best-beaches-cossies-beach-cocos3.jpg");
+  background: url("https://img.barrierreefaustralia.com/files/media/locations/tnq/beaches-of-tnq/TEQ_Kewarra-Beach_1110x624.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  .cover {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
+
+  header {
+    position: relative;
+    flex: 0 0 auto;
+
+    .navlinks {
+      background-color:black;
+      z-index: 10000;
+      height: 100vh;
+      width: 100vw;
+      padding-top: 20px;
+      position: fixed;
+      display: none;
+      top: 0px;
+      left: 0px;
+      flex-direction: column;
+      align-items: end;
+      &.open {
+        display: flex;
+      }
+      @include break-lg {
+        padding-top: 0px;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: transparent;
+        height: auto;
+        width: auto;
+      }
+
+      a {
+        opacity: 0.8;
+        padding: 10px 0px;
+        @include break-lg {
+          padding: 0px;
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .button-outline {
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+        opacity: 0.8;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .account {
+      button {
+        border: none;
+        padding: 0px;
+        background-color: transparent;
+        color: white;
+      }
+    }
+  }
+  section.hero {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    .tripSearchFormContainer {
+      max-width: 800px;
+
+      & > form {
+        background-color: white;
+        position: relative;
+        z-index: 1;
+        .form-control {
+          background-color: transparent;
+          &:focus {
+            box-shadow: none;
+          }
+        }
+        .btn {
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+      .errorMessage {
+        background-color: white;
+        color: red;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transform: translateY(-80%);
+        z-index: 0;
+        transition: 0.3s all;
+
+        &.shown {
+          opacity: 1;
+          transform: translateY(0%);
+        }
+      }
+    }
+  }
+  .spacer {
+    flex: 0 0 50px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+main {
+  position: relative;
+  .filterTag {
+    border: 1px solid red;
+    background-color: transparent;
+    color: red;
+    &.active {
+      background-color: red;
+      color: white;
+    }
+  }
+}
+
+footer {
+  height: 100px;
+  background-color: rgb(80, 80, 80);
+  color: white;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+}
